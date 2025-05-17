@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="rock" onclick="gameRound(rock.id)">Rock</button>
+  <button id="paper" onclick="gameRound(paper.id)">Paper</button>
+  <button id="scissors" onclick="gameRound(scissors.id)">Scissors</button>
+
+  <script>
+  let ComputerScore = 0;
+  let HumanScore = 0;
+
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  function gameRound(HumanChoice) {
+
+  // Get computer choice
+  let ComputerChoice = getRandomInt(1, 3);
+  if (HumanScore == 3 && HumanScore > ComputerScore){alert ("Player won")}
+  else if(ComputerScore == 3 && ComputerScore > HumanScore){alert ("Computer won")}
+  else if(HumanScore < 3 && ComputerScore < 3){
+      // Get Result
+    if (HumanChoice === 'rock' && ComputerChoice == '1') {
+      alert("Draw")
+    }
+    else if (HumanChoice === 'rock' && ComputerChoice == '2') {
+      alert("Computer wins");
+      ComputerScore ++;
+    }
+    else if (HumanChoice === 'rock' && ComputerChoice == '3') {
+      alert("Player wins");
+      HumanScore ++;
+    }
+    else if (HumanChoice === 'paper' && ComputerChoice == '1') {
+      alert("Player wins");
+      HumanScore ++;
+    }
+    else if (HumanChoice === 'paper' && ComputerChoice == '2') {
+      alert("Draw")
+    }
+    else if (HumanChoice === 'paper' && ComputerChoice == '3') {
+      alert("Computer wins");
+      ComputerScore ++;
+    }
+    else if (HumanChoice === 'scissors' && ComputerChoice == '1') {
+      alert("Computer wins");
+      ComputerScore ++;
+    }
+    else if (HumanChoice === 'scissors' && ComputerChoice == '2') {
+      alert("Player wins");
+      HumanScore ++;
+    }
+    else if (HumanChoice === 'scissors' && ComputerChoice == '3') {
+      alert("Draw")
+    }
+    alert('Total score is player ' +HumanScore+ ' vs computer ' +ComputerScore)
+  }
+}
+
+  </script>
+</body>
+</html>
